@@ -59,8 +59,9 @@ export async function POST(request: NextRequest) {
 
     // Return the analysis
     return NextResponse.json(JSON.parse(response.choices[0].message.content || '{}'));
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error:', error);
-    return NextResponse.json({ error: error.message || 'An error occurred' }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 } 

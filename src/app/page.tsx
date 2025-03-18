@@ -56,7 +56,7 @@ export default function Home() {
         // Use orientation fixing for iOS photos
         const fixedImage = await fixImageOrientation(file);
         setImage(fixedImage);
-      } catch (err) {
+      } catch {
         // Fallback to standard method if the fix fails
         const reader = new FileReader();
         reader.onload = () => {
@@ -94,8 +94,9 @@ export default function Home() {
 
       const data = await response.json();
       setAnalysis(data);
-    } catch (err: any) {
-      setError(err.message || 'Ein Fehler ist aufgetreten.');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Ein Fehler ist aufgetreten.';
+      setError(errorMessage);
     } finally {
       setIsAnalyzing(false);
     }
