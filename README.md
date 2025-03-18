@@ -1,24 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Binnenmarkt Preisdetektiv
 
-## Getting Started
+Eine Web-Anwendung, die zeigt, wie der EU-Binnenmarkt die Preise von Produkten beeinflusst.
 
-First, run the development server:
+## Beschreibung
+
+Der "Binnenmarkt Preisdetektiv" ermöglicht es Nutzern, ein Bild eines Produkts hochzuladen und zu erfahren, wie viel dieses Produkt ohne den EU-Binnenmarkt kosten würde. Die Anwendung:
+
+1. Erkennt das Produkt auf dem hochgeladenen Bild mithilfe der OpenAI GPT-4o-mini API
+2. Vergleicht den aktuellen Preis mit einem geschätzten Preis ohne EU-Binnenmarkt (mit Zöllen, höheren Produktionskosten, weniger Wettbewerb)
+3. Erklärt, warum der Binnenmarkt diesen Preisunterschied verursacht
+4. Zeigt an, ob das Produkt wahrscheinlich in der EU produziert wird
+
+## Technologien
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- OpenAI API (GPT-4o-mini)
+
+## Lokale Entwicklung
+
+1. Konfigurieren Sie die Umgebungsvariablen:
+
+```
+OPENAI_API_KEY=your_openai_api_key
+```
+
+2. Installieren Sie die Abhängigkeiten:
+
+```bash
+npm install
+```
+
+3. Starten Sie den Entwicklungsserver:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Öffnen Sie [http://localhost:3000](http://localhost:3000) in Ihrem Browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Produktion
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Um die Anwendung für die Produktion zu bauen:
+
+```bash
+npm run build
+```
+
+Anschließend können Sie die Anwendung starten:
+
+```bash
+npm start
+```
+
+## Lizenz
+
+Dieses Projekt ist unter der MIT-Lizenz lizenziert.
 
 ## Learn More
 
